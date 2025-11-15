@@ -8,6 +8,7 @@ dependencies = [
     "accelerate>=1.11.0",
     "gensim>=4.4.0",
     "numpy>=2.3.4",
+    "pandas>=2.3.3",
     "peft>=0.18.0",
     "scikit-learn>=1.7.2",
     "scipy>=1.16.3",

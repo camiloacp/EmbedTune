@@ -1,4 +1,4 @@
-# 🎧 EmbedTune
+# 🎧 Spotify EmbedRecommender
 
 Sistema inteligente de recomendación musical basado en embeddings y aprendizaje automático, con una interfaz moderna inspirada en Spotify.
 

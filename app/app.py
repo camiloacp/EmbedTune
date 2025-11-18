@@ -312,7 +312,7 @@ st.markdown("---")
 # ============================================
 st.markdown("### 🔍 Find Your Song")
 
-col1, col2 = st.columns([5, 1])
+col1, col2 = st.columns([5, 3])
 
 with col1:
     # Verificar si hay una selección del historial
@@ -346,7 +346,7 @@ if recommend_button:
         
         try:
             with st.spinner('🎵 Analyzing and finding perfect recommendations...'):
-                recommendations = print_recommendations(search_query)
+                recommendations = print_recommendations(search_query, top_n=num_recommendations)
                 
                 if recommendations is not None and not recommendations.empty:
                     # Limitar al número seleccionado
@@ -508,7 +508,7 @@ if recommend_button:
 st.markdown("---")
 st.markdown("""
     <div style="text-align: center; color: #b3b3b3; padding: 20px;">
-        <p>Made with ❤️ using Streamlit | Powered by Machine Learning</p>
+        <p>Made with 💚 using Streamlit | Powered by Machine Learning</p>
         <p style="font-size: 0.8rem;">© 2024 Spotify EmbedRecommender - All rights reserved</p>
     </div>
 """, unsafe_allow_html=True)

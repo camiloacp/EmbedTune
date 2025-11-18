@@ -40,7 +40,7 @@ EmbedTune es una aplicación de recomendación de canciones que utiliza **Word2V
 
 ```bash
 git clone https://github.com/camiloacp/Spotify-EmbedRecomender.git
-cd EmbedTune
+cd Spotify-EmbedRecomender
 ```
 
 2. **Instalar dependencias**

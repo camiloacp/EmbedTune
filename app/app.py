@@ -16,9 +16,31 @@ st.set_page_config(
 # ============================================
 st.markdown("""
     <style>
-    /* Fondo oscuro estilo Spotify */
+    /* Eliminar header blanco y fondo oscuro estilo Spotify */
     .stApp {
-        background-color: #121212;
+        background-color: #121212 !important;
+    }
+    
+    /* Eliminar espacio superior blanco */
+    header[data-testid="stHeader"] {
+        background-color: #121212 !important;
+        height: 0px !important;
+    }
+    
+    /* Asegurar fondo oscuro en todo */
+    .main, .block-container {
+        background-color: #121212 !important;
+        padding-top: 2rem !important;
+    }
+    
+    /* Toolbar superior */
+    [data-testid="stToolbar"] {
+        background-color: #121212 !important;
+    }
+    
+    /* Decoración superior */
+    [data-testid="stDecoration"] {
+        background-color: #121212 !important;
     }
     
     /* Header principal */
@@ -42,65 +64,80 @@ st.markdown("""
     
     /* Mejorar el input */
     .stTextInput input {
-        background-color: #282828;
-        color: #ffffff;
-        border: 2px solid #1DB954;
-        border-radius: 25px;
-        padding: 15px 25px;
-        font-size: 16px;
-        transition: all 0.3s;
+        background-color: #2a2a2a !important;
+        color: #ffffff !important;
+        border: 2px solid #1DB954 !important;
+        border-radius: 25px !important;
+        padding: 15px 25px !important;
+        font-size: 16px !important;
+        transition: all 0.3s !important;
+        -webkit-appearance: none !important;
     }
     
     .stTextInput input:focus {
-        border-color: #1ed760;
-        box-shadow: 0 0 15px rgba(29, 185, 84, 0.3);
+        border-color: #1ed760 !important;
+        box-shadow: 0 0 15px rgba(29, 185, 84, 0.5) !important;
+        background-color: #333333 !important;
+    }
+    
+    .stTextInput input::placeholder {
+        color: #9b9b9b !important;
+        opacity: 1 !important;
     }
     
     /* Botón estilo Spotify */
     .stButton button {
-        background-color: #1DB954;
-        color: white;
-        border-radius: 25px;
-        font-weight: bold;
-        border: none;
-        padding: 15px 30px;
-        transition: all 0.3s;
-        font-size: 16px;
+        background-color: #1DB954 !important;
+        color: white !important;
+        border-radius: 25px !important;
+        font-weight: bold !important;
+        border: none !important;
+        padding: 15px 30px !important;
+        transition: all 0.3s !important;
+        font-size: 16px !important;
+        -webkit-appearance: none !important;
+        cursor: pointer !important;
     }
     
     .stButton button:hover {
-        background-color: #1ed760;
-        transform: scale(1.05);
-        box-shadow: 0 5px 15px rgba(29, 185, 84, 0.4);
+        background-color: #1ed760 !important;
+        transform: scale(1.05) !important;
+        box-shadow: 0 5px 15px rgba(29, 185, 84, 0.6) !important;
+    }
+    
+    .stButton button:active {
+        transform: scale(0.98) !important;
     }
     
     /* Cards de recomendaciones */
     .song-card {
-        background: linear-gradient(135deg, #282828 0%, #181818 100%);
-        padding: 20px;
-        border-radius: 15px;
-        margin: 10px 0;
-        box-shadow: 0 4px 6px rgba(0,0,0,0.3);
-        border-left: 4px solid #1DB954;
-        transition: all 0.3s;
+        background: linear-gradient(135deg, #2d2d2d 0%, #1f1f1f 100%) !important;
+        padding: 20px !important;
+        border-radius: 15px !important;
+        margin: 10px 0 !important;
+        box-shadow: 0 4px 6px rgba(0,0,0,0.5) !important;
+        border-left: 5px solid #1DB954 !important;
+        transition: all 0.3s !important;
     }
     
     .song-card:hover {
-        transform: translateY(-5px);
-        box-shadow: 0 8px 12px rgba(29, 185, 84, 0.3);
+        transform: translateY(-5px) !important;
+        box-shadow: 0 8px 12px rgba(29, 185, 84, 0.5) !important;
+        background: linear-gradient(135deg, #333333 0%, #252525 100%) !important;
     }
     
     .song-title {
-        color: white;
-        margin: 0;
-        font-size: 1.3rem;
-        font-weight: bold;
+        color: #ffffff !important;
+        margin: 0 !important;
+        font-size: 1.3rem !important;
+        font-weight: bold !important;
+        text-shadow: 0 1px 2px rgba(0,0,0,0.3) !important;
     }
     
     .song-artist {
-        color: #b3b3b3;
-        margin: 5px 0;
-        font-size: 1rem;
+        color: #c4c4c4 !important;
+        margin: 5px 0 !important;
+        font-size: 1rem !important;
     }
     
     /* Mejorar el dataframe */
@@ -110,40 +147,132 @@ st.markdown("""
     }
     
     /* Sidebar */
-    .css-1d391kg {
-        background-color: #181818;
+    .css-1d391kg, [data-testid="stSidebar"] {
+        background-color: #1a1a1a !important;
+    }
+    
+    [data-testid="stSidebar"] [data-testid="stMarkdownContainer"] p {
+        color: #e0e0e0 !important;
     }
     
     /* Expander */
     .streamlit-expanderHeader {
-        background-color: #282828;
-        border-radius: 10px;
-        color: white;
+        background-color: #2a2a2a !important;
+        border-radius: 10px !important;
+        color: white !important;
+        border: 1px solid #3a3a3a !important;
+    }
+    
+    .streamlit-expanderContent {
+        background-color: #1f1f1f !important;
+        border: 1px solid #3a3a3a !important;
+        border-top: none !important;
+        border-radius: 0 0 10px 10px !important;
+        padding: 20px !important;
+    }
+    
+    /* Texto dentro del expander */
+    .streamlit-expanderContent p,
+    .streamlit-expanderContent li,
+    .streamlit-expanderContent strong {
+        color: #e0e0e0 !important;
+    }
+    
+    .streamlit-expanderContent strong {
+        color: #ffffff !important;
+        font-weight: 600 !important;
     }
     
     /* Métricas */
     .stMetric {
-        background-color: #282828;
-        padding: 15px;
-        border-radius: 10px;
+        background-color: #2a2a2a !important;
+        padding: 15px !important;
+        border-radius: 10px !important;
+        border: 1px solid #3a3a3a !important;
     }
     
     /* Slider */
     .stSlider > div > div > div {
-        background-color: #1DB954;
+        background-color: #1DB954 !important;
+    }
+    
+    .stSlider [data-testid="stTickBarMin"],
+    .stSlider [data-testid="stTickBarMax"] {
+        color: #e0e0e0 !important;
     }
     
     /* Success/Error messages */
     .stSuccess {
-        background-color: #1DB954;
-        color: white;
-        border-radius: 10px;
+        background-color: #1DB954 !important;
+        color: white !important;
+        border-radius: 10px !important;
+        padding: 15px !important;
+        font-weight: 500 !important;
     }
     
     .stError {
-        background-color: #e22134;
-        color: white;
-        border-radius: 10px;
+        background-color: #e22134 !important;
+        color: white !important;
+        border-radius: 10px !important;
+        padding: 15px !important;
+        font-weight: 500 !important;
+    }
+    
+    .stWarning {
+        background-color: #ff9800 !important;
+        color: white !important;
+        border-radius: 10px !important;
+        padding: 15px !important;
+        font-weight: 500 !important;
+    }
+    
+    .stInfo {
+        background-color: #2196f3 !important;
+        color: white !important;
+        border-radius: 10px !important;
+        padding: 15px !important;
+        font-weight: 500 !important;
+    }
+    
+    /* Mejorar visibilidad general de textos */
+    p, span, div {
+        -webkit-font-smoothing: antialiased !important;
+        -moz-osx-font-smoothing: grayscale !important;
+    }
+    
+    /* Radio buttons y checkboxes */
+    .stRadio label, .stCheckbox label {
+        color: #e0e0e0 !important;
+    }
+    
+    /* Mejorar labels */
+    label {
+        color: #e0e0e0 !important;
+        font-weight: 500 !important;
+    }
+    
+    /* Headers adicionales */
+    h1, h2, h3, h4, h5, h6 {
+        color: #ffffff !important;
+        font-weight: bold !important;
+    }
+    
+    /* Markdown general - listas y texto */
+    .stMarkdown p, .stMarkdown li, .stMarkdown ul {
+        color: #e0e0e0 !important;
+    }
+    
+    .stMarkdown strong {
+        color: #ffffff !important;
+    }
+    
+    .stMarkdown ul li::marker {
+        color: #1DB954 !important;
+    }
+    
+    /* Texto general en contenedores */
+    [data-testid="stMarkdownContainer"] {
+        color: #e0e0e0 !important;
     }
     </style>
 """, unsafe_allow_html=True)
